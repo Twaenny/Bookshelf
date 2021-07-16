@@ -46,7 +46,7 @@ public class BookImpl implements Book {
 		this.name = name;
 	}
 	
-	public void setKennzeichen(Integer kennzeichen) {
+	public void setIsbn(Integer kennzeichen) {
 		this.isbn = kennzeichen;
 	}
 

@@ -31,7 +31,6 @@ public class ShelfController {
 	// returns new Shelf
 	@PostMapping("")
 	ShelfDto insertShelf(@RequestBody  ShelfInputDto shelfInput) {
-		
 		return new ShelfDto(
 				shelfService.addShelf(
 						shelfInput.name, 
