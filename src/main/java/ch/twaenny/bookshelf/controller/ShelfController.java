@@ -19,7 +19,7 @@ public class ShelfController {
 	private ShelfService shelfService;
 	
 	
-	
+	// returns all shelves
 	@GetMapping("")
 	List<ShelfDto> getAllShelf() {
 		return shelfService.getAllShelf()
@@ -28,8 +28,9 @@ public class ShelfController {
 			.collect(Collectors.toList());
 	}
 	
+	// returns new Shelf
 	@PostMapping("")
-	ShelfDto insertGarage(@RequestBody  ShelfInputDto shelfInput) {
+	ShelfDto insertShelf(@RequestBody  ShelfInputDto shelfInput) {
 		
 		return new ShelfDto(
 				shelfService.addShelf(

@@ -27,14 +27,15 @@ public class BookController {
 	@Autowired
 	private ShelfService shelfService;
 	
+	// returns all Books
 	@GetMapping("")
-	List<BookDto> getAllAutos() {
+	List<BookDto> getAllBooks() {
 		return bookService.getAllBooks()
 			.stream()
 			.map(book -> new BookDto(book))
 			.collect(Collectors.toList());
 	}
-	
+	// returns new Book
 	@PostMapping("")
 	BookDto insertBook(@RequestBody  BookInputDto bookInput) {
 		AppUser loanee = userService.getUserById(bookInput.loaneeId);

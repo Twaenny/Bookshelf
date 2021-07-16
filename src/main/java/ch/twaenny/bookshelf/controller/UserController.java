@@ -24,6 +24,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 		
+	// returns all users
 	@GetMapping("")
 	List<UserDto> getAllUsers() {
 		return userService.getAllUsers()
@@ -32,6 +33,7 @@ public class UserController {
 			.collect(Collectors.toList());
 	}
 	
+	// returns new user
 	@PostMapping("")
 	UserDto insertUser(@RequestBody  UserInputDto userInput) {
 		return new UserDto(
@@ -41,17 +43,17 @@ public class UserController {
 						userInput.roles)
 			);
 	}
-	
+	// finds a user by ID
 	@GetMapping("/{id}")
 	UserDto getUserById(@PathVariable("id") long userId) {
 		return new UserDto(userService.getUserById(userId));
 	}
-
+	// deletes user by ID
 	@DeleteMapping("/{id}")
 	void deleteUserById(@PathVariable("id") long userId) {
 		userService.deleteUserById(userId);
 	}
-
+	// sets existing user role
 	@PutMapping("/{id}/roles")
 	UserDto setRoles(@PathVariable("id") long id, @RequestBody RoleInputDto roles) {
 		AppUser user = userService.setRolesForUser(id, roles.roles);
